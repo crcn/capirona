@@ -1,3 +1,5 @@
+Example make.json file:
+
 ```javascript
 {
 	"tasks": {
@@ -18,4 +20,20 @@
 		}
 	}
 }	
+```
+
+In terminal:
+
+```
+capirona web:make:task
+```
+
+Output:
+
+```
+---> make make/:target
+MAAAAKE task
+---> make web/debug/:task
+make task
+done without errors
 ```

@@ -79,10 +79,10 @@ class Config
 	 scripts - in which case we'll need the CWD
 	###
 
-	run: (paths, target, next) ->
+	run: (paths, target, complete) ->
 
 		if typeof target == "function"
-			callback = target
+			complete = target
 			vars     = {}
 
 		paths = [paths] if not (paths instanceof Array)
@@ -104,7 +104,7 @@ class Config
 
 		.
 		seq () ->
-			console.log "DONE"
+			complete()
 
 
 	### 
