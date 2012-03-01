@@ -45,7 +45,7 @@ class Config
 	 Loads  configuration
 	###
 
-	load: (target) ->
+	load: (target, next) ->
 
 		self = @
 
@@ -58,6 +58,14 @@ class Config
 			self._onLoad config
 			@()
 
+		@next next if next
+		@
+
+	###
+	###
+
+	next: (fn) ->
+		@_seq fn
 		@
 
 

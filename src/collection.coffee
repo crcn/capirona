@@ -2,6 +2,7 @@ outcome  = require "outcome"
 _        = require "underscore"
 beanpoll = require "beanpoll"
 structr  = require "structr"
+dolce    = require "dolce"
 
 
 ###
@@ -42,9 +43,9 @@ module.exports = class Tasks
 	###
 
 	constructor: (@factory, @makeConfig) ->
-		@_tasks = {}
 		@factory.tasks = @
 		@_router = beanpoll.router()
+		@_tasks
 
 		@_router.use () =>
 			name: 'task',
