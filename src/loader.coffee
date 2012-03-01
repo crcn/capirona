@@ -5,7 +5,7 @@ module.exports = class Loader
 	###
 	###
 
-	constructor: () ->
+	constructor: (@config) ->
 		@_loaders = []
 
 	###
@@ -14,7 +14,7 @@ module.exports = class Loader
 	load: (target, next) ->
 
 		for loader in @_loaders
-			return loader.run(target, next) if loader.test target
+			return loader.run(target, next, @config) if loader.test target
 
 		throw new Error "Cannot load #{target}"
 

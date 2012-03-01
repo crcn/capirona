@@ -1,10 +1,13 @@
 fs = require 'fs'
 step = require 'stepc'
 outcome = require 'outcome'
+path  = require "path"
 
-exports.run = (file, next) ->
+exports.run = (file, next, config) ->
 	
 	onResult = outcome.error next
+
+	config.cwd = path.dirname file
 
 	step.async () ->
 			fs.readFile file, "utf8", @,

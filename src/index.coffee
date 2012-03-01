@@ -31,7 +31,7 @@ class Config
 		@_loadPlugins @_taskFactory, __dirname + "/tasks"
 			
 		# configuration delegate 
-		@_configLoader = new Loader()
+		@_configLoader = new Loader @
 		@_loadPlugins @_configLoader, __dirname + "/loaders"
 
 		# flow-control
@@ -50,22 +50,24 @@ class Config
 		self = @
 
 		@_seq.seq () ->
-
-			self._configLoader.load target, this
+			self._configLoader.load target, @
 
 		.seq (config) ->
-
 			self._onLoad config
 			@()
 
-		@next next if next
+		if next
+			@next () -> 
+				next.apply @, arguments
+				@()
+
 		@
 
 	###
 	###
 
 	next: (fn) ->
-		@_seq fn
+		@_seq.seq fn
 		@
 
 
