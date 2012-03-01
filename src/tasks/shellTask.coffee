@@ -22,6 +22,7 @@ module.exports = class ShellTask extends BaseTask
 
 		cmd = @_cmd target
 
+
 		exec cmd, { cwd: target.cwd }, (err, stdout, stderr) ->
 			
 			console.log stdout if stdout

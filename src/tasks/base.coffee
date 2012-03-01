@@ -46,7 +46,9 @@ exports.Task = class
 	###
 	###
 
-	_taskMessage: (target) -> "make #{@route.path.value}"
+	_taskMessage: (target) -> 
+		if @route
+			"make #{@route.path.value}"
 
 
 	###

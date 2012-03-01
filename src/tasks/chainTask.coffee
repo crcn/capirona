@@ -1,6 +1,7 @@
 seq			= require "seq"
 BaseTask    = require("./base").Task
 outcome     = require "outcome"
+structr     = require "structr"
 
 
 ###
@@ -28,12 +29,14 @@ module.exports = class ChainedTask extends BaseTask
 
 	_run: (target, next) ->
 
+		# target = structr.copy(target)
+
 		self = @
 
-
 		seq(@chains).
-		seqEach( (chain, next) ->
-			chain.run target, outcome.error(this).success(this)
+		seqEach( (chain) ->
+			chain.run target, outcome.error(next).success () =>
+				this()
 		).seq ->
 			next()
 	

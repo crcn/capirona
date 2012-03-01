@@ -22,10 +22,10 @@ module.exports = class TargetTask extends BaseTask
 		
 		obj = {}
 
-
 		#structr.copy @target, target
 		structr.copy target, obj
 		structr.copy @target, obj
+
 
 		# parse the object incase vars are passed 
 		obj = parseTpl(obj, target)
@@ -35,7 +35,7 @@ module.exports = class TargetTask extends BaseTask
 	###
 	###
 
-	_taskMessage: (target) -> "target #{@route.path.value || target.name || ""}"
+	_taskMessage: (target) -> "target #{if @route then @route.path.value else target.name || ""}"
 
 	###
 	###

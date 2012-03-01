@@ -100,12 +100,20 @@ class Config
 		self = @
 
 
+
+
 		@_seq.seq () ->
+
+			if target.cwd
+				self.cwd = target.cwd
+
+			console.log self.cwd
 
 			next = @
 
 			seq(paths).
 			seqEach (path) ->
+
 				self._run path, structr.copy(self.vars, target), (err) =>
 					return complete err if err
 					@()
