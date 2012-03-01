@@ -31,7 +31,7 @@ capirona web:make:task
 Output:
 
 ```
----> make make/:target
+---> make make/task
 make task!
 ---> make web/debug/:task
 make task
