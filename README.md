@@ -3,7 +3,6 @@
 ```javascript
 {
 	"tasks": {
-		
 		"web:*": {
 			"make:{{task}} -> debug:{{task}}": {
 				"log": "make {{task}}"
