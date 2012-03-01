@@ -18,6 +18,6 @@ replace('./', process.cwd() + "/");
 
 
 capirona.make().load(makeTarget).run(argv._, argv, function(err) {
-	if(err) return console.error(err);
+	if(err) return console.error(err.message);
 	console.log('done without errors')
 });

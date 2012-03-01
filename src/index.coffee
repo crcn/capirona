@@ -97,7 +97,7 @@ class Config
 			seq(paths).
 			seqEach (path) ->
 				self._run path, structr.copy(self.vars, target), (err) =>
-					return next err if err
+					return complete err if err
 					@()
 			.seq () ->
 				next()
