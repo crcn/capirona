@@ -1,4 +1,4 @@
-Example make.json file:
+### Example make.json file:
 
 ```javascript
 {
@@ -36,4 +36,13 @@ MAAAAKE task
 ---> make web/debug/:task
 make task
 done without errors
+```
+
+### Usage
+
+```
+Usage: capirona [targets] -i=[target] --arg=[value]
+
+Options:
+  -i, --input  [default: "./make.json"]
 ```
