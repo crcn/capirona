@@ -98,12 +98,12 @@ module.exports = class Tasks
 		for parent in parents.reverse()
 			parentCopy = structr.copy(parent)
 
-			pre = parentCopy.path.segments[parentCopy.path.segments.length - 1].value is '*'
+			# pre = parentCopy.path.segments[parentCopy.path.segments.length - 1].value is '*'
 
 			# extending child routes? concat the pre-path the the children
-			if pre
-				parentCopy.path.segments.pop()
-				target.path = @_router.parse.parsePath @_router.parse.stringifySegments parentCopy.path.segments.concat target.path.segments
+			#if pre
+			# parentCopy.path.segments.pop()
+			target.path = @_router.parse.parsePath @_router.parse.stringifySegments parentCopy.path.segments.concat target.path.segments
 				
 
 

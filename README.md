@@ -4,7 +4,7 @@
 {
 	"tasks": {
 		
-		"web:*": {
+		"web": {
 			"make:{{task}} -> debug:{{task}}": {
 				"log": "make {{task}}"
 			}
