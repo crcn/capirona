@@ -26,8 +26,13 @@ module.exports = class LogTask extends BaseTask
 	###
 
 	_run: (target, next) ->
-		console.log parseTpl(@log, target)
+		# console.log parseTpl(@log, target)
 		next()
+
+	###
+	###
+
+	_taskMessage: () -> "#{@log}"
 	
 
 
