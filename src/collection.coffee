@@ -142,7 +142,7 @@ module.exports = class Tasks
 
 	run: (path, target, next) ->
 
-		_.defaults target, @makeConfig.vars
+		_.defaults target, @makeConfig.config
 
 		@_router.
 		request(@_fixPath path).

@@ -77,8 +77,8 @@ class Config
 
 	clear: () ->
 
-		@vars   = { buildId: crc32 String Date.now() }
-		@_tasks = new Tasks @_taskFactory, @
+		@config   = { buildId: crc32 String Date.now() }
+		@_tasks   = new Tasks @_taskFactory, @
 
 		@
 
@@ -137,6 +137,8 @@ class Config
 
 	_onLoad: (config) ->
 		
+		structr.copy config, @config
+		
 		self = @
 
 		# fix relative paths
@@ -147,31 +149,8 @@ class Config
 
 		@_tasks.load config.tasks if config.tasks
 
-		# vars which get copied to the target
-		@_loadVars config.vars if config.vars
 
-
-	###
-	 loads vars from the vars header config
-	###
-
-	_loadVars: (vars) ->
 	
-		trav = {
-			v: vars
-		};
-
-		try
-			traverse(trav).forEach (v) ->
-				try
-					if typeof v == "string" && fs.lstatSync v
-						this.update JSON.parse(fs.readFileSync(v, "utf8"))
-				catch e
-		catch e
-
-
-		_.extend @vars, trav.v
-
 
 	###
 	 loads plugins for task factory, or config loader
