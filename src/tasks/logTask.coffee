@@ -32,7 +32,7 @@ module.exports = class LogTask extends BaseTask
 	###
 	###
 
-	_taskMessage: () -> "#{@log}"
+	_taskMessage: (target) -> "#{parseTpl(@log, target)}"
 	
 
 

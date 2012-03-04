@@ -23,6 +23,10 @@ module.exports = class ChainedTask extends BaseTask
 		for rawTask in chains
 			@chains.push @tasks.factory.newTask(null, rawTask)
 		
+	###
+	###
+
+	_printMessage:() ->
 				
 	###
 	###
