@@ -7,7 +7,6 @@ This is the no-frill build system used for [mesh](/crcn/mesh)
 ```javascript
 {
 	"tasks": {
-		
 		"web": {
 			"say/hello -> debug/:task": {
 				"log": "make <%=task %>"
