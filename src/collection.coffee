@@ -3,6 +3,7 @@ _        = require "underscore"
 beanpoll = require "beanpoll"
 structr  = require "structr"
 dolce    = require "dolce"
+path     = require "path"
 
 
 ###
@@ -58,8 +59,6 @@ module.exports = class Tasks
 
 	load: (rawTasks, inherit) ->
 
-		inherit = [] if not inherit
-
 
 		for routeStr of rawTasks
 			for route in @_parseTaskName routeStr, inherit
@@ -71,7 +70,7 @@ module.exports = class Tasks
 				if task
 					@add task
 				else
-					@load taskData, inherit.concat route
+					@load taskData, route
 									
 		@
 			
@@ -95,29 +94,39 @@ module.exports = class Tasks
 	###
 	###
 
-	_extendRoute: (target, parents) ->
+	_extendRoute: (target, parent) ->
 
+		return target if not parent
 
-		for parent in parents.reverse()
-			parentCopy = structr.copy(parent)
+		parentCopy = structr.copy(parent)
 
-			# pre = parentCopy.path.segments[parentCopy.path.segments.length - 1].value is '*'
+		realPathStr = @_router.parse.stringifySegments parentCopy.path.segments.concat target.path.segments
 
-			# extending child routes? concat the pre-path the the children
-			#if pre
-			# parentCopy.path.segments.pop()
-			target.path = @_router.parse.parsePath @_router.parse.stringifySegments parentCopy.path.segments.concat target.path.segments
+		target.path = @_router.parse.parsePath realPathStr
 
-			thru = target
+		thru = target
 
-			while thru.thru
-				thru = thru.thru
+		while thru.thru
+			thru = @_fixThru thru.thru, parent
 
-			thru.thru = parentCopy.thru
+		thru.thru = parentCopy.thru
 
 		target
 
-			
+	###
+	###
+
+	_fixThru: (target, route) ->
+		
+		tpv = target.path.value
+		rpv = route.path.value
+		normalized = tpv
+
+		if tpv.substr(0,1) is '.'
+			normalized = path.normalize(rpv + "/" + tpv)
+
+		target.path = @_router.parse.parsePath normalized
+		target
 
 	###
 	###

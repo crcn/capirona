@@ -14,7 +14,6 @@ module.exports = class Factory
 	###
 
 	constructor: () ->
-
 		@_classes = []
 		
 	###
