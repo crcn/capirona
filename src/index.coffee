@@ -155,7 +155,7 @@ class Config
 		structr.copy config, @config
 		structr.copy config.mesh, @config if config.mesh
 
-		if config.mesh
+		if config.mesh	
 			@_tasks.load config.mesh.tasks or {}
 		else if config.tasks
 			@_tasks.load config.tasks

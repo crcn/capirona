@@ -1,5 +1,5 @@
 BaseTask    = require("./base").Task
-parseTpl    = require "../parseTpl"
+tpl         = require "../tpl"
 exec        = require("child_process").exec
 
 ###
@@ -38,7 +38,7 @@ module.exports = class ShellTask extends BaseTask
 	###
 
 	_cmd: (target) -> 	
-		return parseTpl @exec, target
+		return tpl.render @exec, target
 
 
 

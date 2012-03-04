@@ -3,7 +3,7 @@ handlebars  = require "handlebars"
 walkr       = require "walkr"
 structr     = require "structr"
 outcome     = require "outcome"
-parseTpl    = require "../parseTpl"
+tpl         = require "../tpl"
 
 ###
  the ENTRY point into the build system
@@ -32,7 +32,7 @@ module.exports = class SearchTask extends BaseTask
 	_run: (target, nextTask) -> 
 
 
-		dir = parseTpl(@options.directory, target)
+		dir = tpl.render @options.directory, target
 
 		target = structr.copy(target)
 

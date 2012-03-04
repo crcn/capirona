@@ -1,5 +1,6 @@
 BaseTask    = require("./base").Task
-parseTpl    = require "../parseTpl"
+tpl         = require "../tpl"
+
 
 ###
  references another builder
@@ -27,8 +28,8 @@ module.exports = class RefTask extends BaseTask
 	###
 	###
 
-	_find: (target) ->
-		return parseTpl @taskName, target
+	_find: (target) -> 
+		tpl.render @taskName, target
 
 
 

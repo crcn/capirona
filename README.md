@@ -9,12 +9,12 @@ This is the no-frill build system used for [mesh](/crcn/mesh)
 	"tasks": {
 		
 		"web": {
-			"say:hello -> debug:{{task}}": {
-				"log": "make {{task}}"
+			"say/hello -> debug/:task": {
+				"log": "make <%=task %>"
 			}
 		},
-		"say:hello": {
-			"log": "hello {{name}}!"
+		"say/hello": {
+			"log": "hello world!"
 		}
 	}
 }	

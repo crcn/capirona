@@ -1,6 +1,6 @@
 BaseTask    = require("./base").Task
 structr     = require "structr"
-parseTpl    = require "../parseTpl"
+tpl         = require "../tpl"
 
 ###
  the ENTRY point into the build system
@@ -13,8 +13,6 @@ module.exports = class TargetTask extends BaseTask
 
 	load: (@target) ->
 		@task = @tasks.factory.newTask null, @target.task
-		@tasks.targets = [] if not @tasks.targets
-		@tasks.targets.push(@)
 
 	###
 	 passes the build phase 
@@ -30,7 +28,7 @@ module.exports = class TargetTask extends BaseTask
 
 
 		# parse the object incase vars are passed 
-		obj = parseTpl(obj, target)
+		obj = tpl.render obj, target
 
 		@task.run obj, next
 	

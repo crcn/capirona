@@ -1,7 +1,7 @@
 seq			= require "seq"
 BaseTask    = require("./base").Task
 outcome     = require "outcome"
-parseTpl    = require "../parseTpl"
+tpl         = require "../tpl"
 
 
 ###
@@ -26,13 +26,12 @@ module.exports = class LogTask extends BaseTask
 	###
 
 	_run: (target, next) ->
-		# console.log parseTpl(@log, target)
 		next()
 
 	###
 	###
 
-	_taskMessage: (target) -> "#{parseTpl(@log, target)}"
+	_taskMessage: (target) -> "#{tpl.render @log, target}"
 	
 
 

@@ -1,4 +1,5 @@
-handlebars = require "handlebars"
+#handlebars = require "handlebars"
+ejs        = require "ejs"
 traverse   = require "traverse"
 
 module.exports = (buffer, ops) ->

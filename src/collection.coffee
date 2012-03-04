@@ -82,7 +82,7 @@ module.exports = class Tasks
 	_parseTaskName: (routeStr, inherit) ->
 
 		# make the route compatable with beanpoll 
-		fixed  = @_fixPath routeStr
+		fixed  = routeStr
 		routes = @_router.parse(fixed)
 
 
