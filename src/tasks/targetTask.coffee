@@ -40,7 +40,7 @@ module.exports = class TargetTask extends BaseTask
 	###
 	###
 
-	_pointer: () -> ""
+	_pointer: () -> "* "
 		
 
 
