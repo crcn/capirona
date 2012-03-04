@@ -83,6 +83,15 @@ class Config
 		@
 
 
+	###
+	###
+
+	cwd: (dir) ->
+		self = @
+		@_seq.seq () ->
+			self.cwd = dir
+			this()
+		@
 
 	###
 	 loads a config from disc - important because they MAY contain
@@ -144,8 +153,12 @@ class Config
 				this.update path.normalize v.replace(/^\./, self.cwd + "/.").replace(/^~/, process.env.HOME + "/");
 
 		structr.copy config, @config
+		structr.copy config.mesh, @config if config.mesh
 
-		@_tasks.load config.tasks if config.tasks
+		if config.mesh
+			@_tasks.load config.mesh.tasks or {}
+		else if config.tasks
+			@_tasks.load config.tasks
 
 
 	
