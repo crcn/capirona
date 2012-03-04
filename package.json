@@ -1,26 +1,23 @@
 {
-  "author": "Craig Condon",
-  "name": "capirona",
-  "description": "Javascript Build System",
-  "version": "0.0.0",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/crcn/capirona.git"
-  },
-  "main": "./lib/index.js",
-  "dependencies": {
-    "crc32": "0.2.x",
-    "stepc": "0.0.x",
-    "traverse": "0.5.x",
-    "underscore": "1.2.x",
-    "optimist": "0.3.x",
-    "structr": "0.1.x",
-    "outcome": "0.0.x",
-    "handlebars": "*",
-    "beanpoll": "0.2.x"
-  },
-  "bin": {
-    "capirona": "./bin/capirona"
-  },
-  "devDependencies": {}
+    "author": "Craig Condon",
+    "name": "capirona",
+    "description": "Javascript Build System",
+    "version": "0.0.1",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/crcn/capirona.git"
+    },
+    "main": "./lib/index.js",
+    "dependencies": {
+        "crc32": "0.2.x",
+        "stepc": "0.0.x",
+        "traverse": "0.5.x",
+        "underscore": "1.2.x",
+        "optimist": "0.3.x",
+        "structr": "0.1.x",
+        "outcome": "0.0.x",
+        "handlebars": "*",
+        "beanpoll": "0.2.x"
+    },
+    "devDependencies": {}
 }
