@@ -13,6 +13,8 @@ module.exports = class TargetTask extends BaseTask
 
 	load: (@target) ->
 		@task = @tasks.factory.newTask null, @target.task
+		@tasks.targets = [] if not @tasks.targets
+		@tasks.targets.push(@)
 
 	###
 	 passes the build phase 
