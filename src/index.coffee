@@ -107,8 +107,6 @@ class Config
 			if target.cwd
 				self.cwd = target.cwd
 
-			console.log self.cwd
-
 			next = @
 
 			seq(paths).
@@ -137,7 +135,6 @@ class Config
 
 	_onLoad: (config) ->
 		
-		structr.copy config, @config
 		
 		self = @
 
@@ -146,6 +143,7 @@ class Config
 			if typeof v == 'string' && /^(\.|~)+(\/\w*)+/.test v
 				this.update path.normalize v.replace(/^\./, self.cwd + "/.").replace(/^~/, process.env.HOME + "/");
 
+		structr.copy config, @config
 
 		@_tasks.load config.tasks if config.tasks
 

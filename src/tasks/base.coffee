@@ -40,7 +40,8 @@ exports.Task = class
 	###
 
 	_printMessage: (target) ->
-		console.log "#{@_pointer()}#{@_taskMessage target}"
+		message = @_taskMessage target
+		console.log "#{@_pointer()}#{message}" if message
 		
 
 	###

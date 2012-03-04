@@ -107,8 +107,6 @@ module.exports = class Tasks
 			#if pre
 			# parentCopy.path.segments.pop()
 			target.path = @_router.parse.parsePath @_router.parse.stringifySegments parentCopy.path.segments.concat target.path.segments
-				
-
 
 			thru = target
 

@@ -19,7 +19,7 @@
 			"file": "src/index.coffee",
 			"settings":
 			{
-				"buffer_size": 2904,
+				"buffer_size": 2558,
 				"line_ending": "Unix"
 			}
 		},
@@ -76,6 +76,14 @@
 			"settings":
 			{
 				"buffer_size": 760,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/tmp/subl stdin hmhTQD.txt",
+			"settings":
+			{
+				"buffer_size": 0,
 				"line_ending": "Unix"
 			}
 		},
@@ -155,7 +163,7 @@
 			"file": "src/collection.coffee",
 			"settings":
 			{
-				"buffer_size": 2446,
+				"buffer_size": 2448,
 				"line_ending": "Unix"
 			}
 		},
@@ -171,7 +179,7 @@
 			"file": "lib/index.js",
 			"settings":
 			{
-				"buffer_size": 4162,
+				"buffer_size": 3638,
 				"line_ending": "Unix"
 			}
 		},
@@ -195,7 +203,23 @@
 			"file": "src/tasks/base.coffee",
 			"settings":
 			{
-				"buffer_size": 800,
+				"buffer_size": 831,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/tmp/subl stdin B2MbGz.txt",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/tmp/subl stdin vYXPy1.txt",
+			"settings":
+			{
+				"buffer_size": 0,
 				"line_ending": "Unix"
 			}
 		},
@@ -203,7 +227,7 @@
 			"file": "package.json",
 			"settings":
 			{
-				"buffer_size": 502,
+				"buffer_size": 566,
 				"line_ending": "Unix"
 			}
 		}
@@ -377,6 +401,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"vars",
+			"@vars",
+			"structr",
+			"config.vars",
 			".data",
 			"structr.c",
 			"structr",
@@ -500,11 +528,7 @@
 			"prop",
 			"_pass",
 			"password",
-			"group/valida",
-			"groups/generate/publicName",
-			"callback",
-			"Un",
-			"Unauth"
+			"group/valida"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -522,7 +546,7 @@
 	"groups":
 	[
 		{
-			"selected": 7,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -530,15 +554,15 @@
 					"file": "src/index.coffee",
 					"settings":
 					{
-						"buffer_size": 2904,
+						"buffer_size": 2558,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1660,
-								1660
+								2253,
+								2253
 							]
 						],
 						"settings":
@@ -547,7 +571,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2104.0,
+						"translation.y": 1739.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -740,7 +764,7 @@
 				},
 				{
 					"buffer": 8,
-					"file": "/tmp/subl stdin Nl3gRP.txt",
+					"file": "/tmp/subl stdin hmhTQD.txt",
 					"settings":
 					{
 						"buffer_size": 0,
@@ -766,6 +790,32 @@
 				},
 				{
 					"buffer": 9,
+					"file": "/tmp/subl stdin Nl3gRP.txt",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
 					"file": "src/tasks/shellTask.coffee",
 					"settings":
 					{
@@ -792,7 +842,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 10,
+					"buffer": 11,
 					"file": "src/tasks/searchTask.coffee",
 					"settings":
 					{
@@ -819,7 +869,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 11,
+					"buffer": 12,
 					"file": "src/tasks/scriptTask.coffee",
 					"settings":
 					{
@@ -846,7 +896,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 12,
+					"buffer": 13,
 					"file": "src/tasks/refTask.coffee",
 					"settings":
 					{
@@ -873,7 +923,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 13,
+					"buffer": 14,
 					"file": "src/tasks/includeTask.coffee",
 					"settings":
 					{
@@ -900,7 +950,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 14,
+					"buffer": 15,
 					"file": "src/tasks/logTask.coffee",
 					"settings":
 					{
@@ -927,7 +977,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 15,
+					"buffer": 16,
 					"file": "/tmp/subl stdin A1NYer.txt",
 					"settings":
 					{
@@ -953,7 +1003,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 16,
+					"buffer": 17,
 					"file": "src/tasks/chainTask.coffee",
 					"settings":
 					{
@@ -980,19 +1030,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 17,
+					"buffer": 18,
 					"file": "src/collection.coffee",
 					"settings":
 					{
-						"buffer_size": 2446,
+						"buffer_size": 2448,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								291,
-								291
+								468,
+								468
 							]
 						],
 						"settings":
@@ -1007,7 +1057,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 18,
+					"buffer": 19,
 					"file": "README.md",
 					"settings":
 					{
@@ -1018,8 +1068,8 @@
 						"selection":
 						[
 							[
-								751,
-								751
+								188,
+								188
 							]
 						],
 						"settings":
@@ -1034,11 +1084,11 @@
 					"type": "text"
 				},
 				{
-					"buffer": 19,
+					"buffer": 20,
 					"file": "lib/index.js",
 					"settings":
 					{
-						"buffer_size": 4162,
+						"buffer_size": 3638,
 						"regions":
 						{
 						},
@@ -1062,7 +1112,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 20,
+					"buffer": 21,
 					"file": "lib/tasks/includeTask.js",
 					"settings":
 					{
@@ -1090,7 +1140,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 21,
+					"buffer": 22,
 					"file": ".cupboard",
 					"settings":
 					{
@@ -1116,19 +1166,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 22,
+					"buffer": 23,
 					"file": "src/tasks/base.coffee",
 					"settings":
 					{
-						"buffer_size": 800,
+						"buffer_size": 831,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								360,
-								360
+								557,
+								557
 							]
 						],
 						"settings":
@@ -1137,31 +1187,83 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 4.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 23,
-					"file": "package.json",
+					"buffer": 24,
+					"file": "/tmp/subl stdin B2MbGz.txt",
 					"settings":
 					{
-						"buffer_size": 502,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								476,
-								476
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 25,
+					"file": "/tmp/subl stdin vYXPy1.txt",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 26,
+					"file": "package.json",
+					"settings":
+					{
+						"buffer_size": 566,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JSON.tmLanguage",
-							"tab_size": 2,
+							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
