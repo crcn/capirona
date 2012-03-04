@@ -1,6 +1,6 @@
 ### JavaScript Build System
 
-This is the no-frill build system used for [mesh](/crcn/mesh)
+This is the build system used for [mesh](/crcn/mesh).
 
 ### Example make.json file:
 
