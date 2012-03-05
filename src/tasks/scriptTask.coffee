@@ -27,6 +27,12 @@ module.exports = class ScreiptTask extends BaseTask
 	_taskMessage: (target) ->
 		return if @task.taskMessage then @task.taskMessage target else super target
 
+	###
+	###
+
+	_params: () -> 
+		@task.params
+
 
 
 module.exports.test = (config) ->

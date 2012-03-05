@@ -2,7 +2,7 @@
     "author": "Craig Condon",
     "name": "capirona",
     "description": "Javascript Build System",
-    "version": "0.0.6",
+    "version": "0.0.7",
     "repository": {
         "type": "git",
         "url": "git://github.com/crcn/capirona.git"
@@ -22,7 +22,8 @@
         "plugin": "0.0.x",
         "seq": "0.3.x",
         "walkr": "0.0.x",
-        "dolce": "0.0.x"
+        "dolce": "0.0.x",
+        "validator": "0.3.x"
     },
     "devDependencies": {}
 }

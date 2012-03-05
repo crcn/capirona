@@ -21,6 +21,8 @@ exports.Task = class
 	###
 
 	run: (target, next) ->
+
+		@validate target
 			
 		# only set the name if it exists - could be a reference, or chain. In
 		# which case we want the PARENT chain
@@ -31,6 +33,72 @@ exports.Task = class
 		@_printMessage target
 
 		@_run target, next
+
+	###
+	###
+
+	validate: (target) -> 
+
+		params = @_params()
+
+		for name of params
+			tester = @_tester params[name]
+			tv     = @_ref(target, name)
+
+			throw new Error ("\"--#{name}\" is missing") if (typeof tv == 'undefined')
+			
+			try
+				value = tester.test tv
+
+				if value is false
+					throw new Error("is invalid") 
+
+				if not (typeof value is 'boolean')
+					@_ref(target, name, value) 
+			catch e
+				throw new Error("\"--#{name}\" #{e.message}")
+
+
+	###
+	###
+
+
+	_tester: (value) ->
+
+		if value instanceof RegExp
+			return value
+
+		if typeof value == 'function'
+			return {
+				test: (v) -> value(v)
+			}
+
+		return {
+			test: () -> true
+		}
+
+	###
+	###
+
+	_ref: (target, property, value) ->
+		cur = target
+		prev = target
+		parts = property.split "."
+		prevPart = null
+		while parts.length and cur
+			prevPart = parts[0]
+			prev = cur
+			cur = cur[parts.shift()]
+
+		prev[prevPart] = value if arguments.length > 2
+
+		return cur
+
+
+	###
+	###
+
+	_params: () -> @params
 
 	###
 	###
