@@ -41,6 +41,8 @@ class Config
 		# clears vars & configs
 		@clear()
 
+		@_loaded = {}
+
 
 	###
 	 Loads  configuration
@@ -50,6 +52,12 @@ class Config
 
 		if typeof ops is 'function'
 			next = ops
+
+		if @_loaded[source]
+			console.warn "#{source} is already loaded"
+			return next null, { config: {} }
+
+		@_loaded[source] = {}
 
 		ops = {} if not ops
 
