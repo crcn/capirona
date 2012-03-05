@@ -53,14 +53,15 @@ class Config
 		if typeof ops is 'function'
 			next = ops
 
+
+		ops = {} if not ops
+
 		if @_loaded[source]
 			console.warn "#{source} is already loaded"
 			next null, { config: {} }
 			return @
 
 		@_loaded[source] = {}
-
-		ops = {} if not ops
 
 		self = @
 		seqNext = null

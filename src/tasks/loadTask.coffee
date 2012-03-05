@@ -26,10 +26,12 @@ module.exports = class LoadTask extends BaseTask
 
 		makeConfig = @tasks.makeConfig
 
+		cwd = tpl.render @cwd, target 
 
-		makeConfig.load @_cfgPath(target), { cwd: tpl.render @cwd, target }, (err, result) ->
+		makeConfig.load @_cfgPath(target), { cwd: cwd }, (err, result) ->
 			return next(err) if err
-			newTarget = structr.copy result.config, target
+			structr.copy result.config, target
+			target.cwd = cwd
 			next()
 
 	###
