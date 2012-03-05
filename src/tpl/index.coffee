@@ -7,9 +7,7 @@ structr  = require 'structr'
 
 render = (value, data) ->
 
-
 	clone = traverse(value).clone()
-	# dataClone = traverse(data).clone()
 
 	return traverse(clone).forEach (x) ->
 
