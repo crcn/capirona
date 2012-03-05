@@ -121,7 +121,11 @@ class Config
 			seq(paths).
 			seqEach (path) ->
 
-				self._run path, structr.copy(self.vars, target), (err) =>
+				config = structr.copy(self.config)
+				config = structr.copy(target, config) 
+				config.task = path
+
+				self._run path, config, (err) =>
 					return complete err if err
 					@()
 			.seq () ->

@@ -35,7 +35,7 @@ module.exports = class IncludeTask extends BaseTask
 			cfg = JSON.parse fs.readFileSync(include, "utf8")
 
 			# load the target script
-			@tasks.load cfg, [route]
+			@tasks.load cfg, route
 
 	###
 	 passes the build phase @

@@ -30,6 +30,7 @@ module.exports = class TargetTask extends BaseTask
 		# parse the object incase vars are passed 
 		obj = tpl.render obj, target
 
+
 		@task.run obj, next
 	
 	###

@@ -8,7 +8,7 @@ exports.Task = class
 	###
 	###
 
-	constructor: (@route, @tasks = null) ->
+	constructor: (@route, @tasks = null, @parent = null) ->
 	
 	###
 	 load from raw config

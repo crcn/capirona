@@ -21,7 +21,7 @@ module.exports = class ChainedTask extends BaseTask
 		
 		@chains = []
 		for rawTask in chains
-			@chains.push @tasks.factory.newTask(null, rawTask)
+			@chains.push @tasks.factory.newTask(null, rawTask, @)
 		
 	###
 	###

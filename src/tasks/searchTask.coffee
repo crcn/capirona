@@ -36,7 +36,6 @@ module.exports = class SearchTask extends BaseTask
 
 		target = structr.copy(target)
 
-		
 		walkr(dir).
 		filter (options, next) =>
 			

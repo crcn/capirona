@@ -1,5 +1,6 @@
 BaseTask    = require("./base").Task
 tpl         = require "../tpl"
+path        = require "path"
 
 
 ###
@@ -29,7 +30,13 @@ module.exports = class RefTask extends BaseTask
 	###
 
 	_find: (target) -> 
-		tpl.render @taskName, target
+		route = tpl.render @taskName, target
+
+		if @parent and route.substr(0, 1) == '.'
+			route = path.normalize(@parent.route.path.value + "/" + route)
+
+		route
+
 
 
 
