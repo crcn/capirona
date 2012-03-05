@@ -30,12 +30,13 @@ module.exports = class RefTask extends BaseTask
 	###
 
 	_find: (target) -> 
-		route = tpl.render @taskName, target
+		relPath = tpl.render @taskName, target
+		tg      = if @route then @ else @parent
 
-		if @parent and route.substr(0, 1) == '.'
-			route = path.normalize(@parent.route.path.value + "/" + route)
+		if tg and relPath.substr(0, 1) == '.'
+			relPath = path.normalize(tg.route.path.value + "/" + relPath)
 
-		route
+		relPath
 
 
 
