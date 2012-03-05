@@ -17,10 +17,19 @@ module.exports = class ChainedTask extends BaseTask
 	###
 	###
 
-	load: (chains) ->
-		
+	load: (config) ->
+
+		cfg = {}
+
+		if config instanceof Array
+			cfg.chain = config
+		else
+			cfg = config
+
+
+		@parallel = !!cfg.parallel
 		@chains = []
-		for rawTask in chains
+		for rawTask in cfg.chain
 			@chains.push @tasks.factory.newTask(null, rawTask, @)
 		
 	###
@@ -37,8 +46,9 @@ module.exports = class ChainedTask extends BaseTask
 
 		self = @
 
-		seq(@chains).
-		seqEach( (chain) ->
+		fn = if @parallel then 'parEach' else 'seqEach'
+
+		seq(@chains)[fn]( (chain) ->
 			chain.run target, outcome.error(next).success () =>
 				this()
 		).seq ->
@@ -47,4 +57,4 @@ module.exports = class ChainedTask extends BaseTask
 
 
 module.exports.test = (config) ->
-	return config instanceof Array
+	return (config instanceof Array) or config.chain

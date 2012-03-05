@@ -22,9 +22,13 @@ module.exports = class ShellTask extends BaseTask
 
 		cmd = @_cmd target
 
-		console.log(target.cwd)
+		child = exec cmd, { cwd: target.cwd, maxBuffer: 0 }, next
 
-		child = exec cmd, { cwd: target.cwd }, next
+		# taking a look at the sauce code - there's a buffer that's appended.
+		# We don't want that shit, so remove the listeners. This also fixes 
+		# the thrown exception for long processes
+		child.stdout.removeAllListeners('data')
+		child.stderr.removeAllListeners('data')
 
 		child.stdout.on 'data', (data) ->
 			process.stdout.write(data)
