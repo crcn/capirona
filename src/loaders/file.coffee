@@ -20,4 +20,4 @@ exports.run = (file, next, config) ->
 		, next
 
 exports.test = (target) ->
-	return typeof target == 'string'
+	return /.json$/.test String(target)
