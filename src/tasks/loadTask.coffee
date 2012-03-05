@@ -15,7 +15,7 @@ module.exports = class LoadTask extends BaseTask
 
 	load: (ops) ->
 		@cfg = ops.load
-		@cwd = ops.cwd
+		@cwd = ops.cwd or path.dirname ops.load
 		@cfgDir = @tasks.makeConfig.pathDir
 
 	###
