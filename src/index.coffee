@@ -55,7 +55,8 @@ class Config
 
 		if @_loaded[source]
 			console.warn "#{source} is already loaded"
-			return next null, { config: {} }
+			next null, { config: {} }
+			return @
 
 		@_loaded[source] = {}
 
