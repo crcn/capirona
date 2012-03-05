@@ -11,6 +11,7 @@ _              = require "underscore"
 crc32          = require "crc32"
 plugin         = require "plugin"
 structr		   = require "structr"
+tpl            = require "./tpl"
 
 
 
@@ -45,7 +46,12 @@ class Config
 	 Loads  configuration
 	###
 
-	load: (source, next) ->
+	load: (source, ops, next) ->
+
+		if typeof ops is 'function'
+			next = ops
+
+		ops = {} if not ops
 
 		self = @
 		seqNext = null
@@ -63,14 +69,15 @@ class Config
 			self._configLoader.load source, @
 
 		.seq (config) ->
-			self._onLoad config
-			@()
+			config.cwd = ops.cwd if ops.cwd
+			cfg = self._onLoad config
+			@ null, cfg
 
-		.seq () ->
+		.seq (cfg) ->
 
 			# callback provided? call it now.
 			if next
-				next.apply null, arguments
+				next null, { config: cfg }
 
 			@()
 
@@ -157,29 +164,43 @@ class Config
 	###
 
 	_onLoad: (config) ->
-		
-		
-		self = @
 
+		self = @
 		self.cwd = config.cwd if config.cwd
 
-
-		# fix relative paths
-		traverse(config).forEach (v) ->
-			if typeof v == 'string' && /^(\.|~)+(\/\w*)+/.test v
-				this.update path.normalize v.replace(/^\./, self.cwd + "/.").replace(/^~/, process.env.HOME + "/");
-
-
-		structr.copy config, @config
-		structr.copy config.mesh, @config if config.mesh
-
-		delete @config.mesh
-		delete @config.tasks
-
-		if config.mesh	
-			@_tasks.load config.mesh.tasks or {}
+		if config.mesh
+			tasks = config.mesh.tasks || {}
 		else if config.tasks
-			@_tasks.load config.tasks
+			tasks = config.tasks
+
+
+		# don't want these parsed...
+		delete config.mesh
+		delete config.tasks
+
+
+		# oh god what a mess >.>
+		# TODO: clean me.
+
+		# first need to copy the old config
+		oldConfig = structr.copy @config
+
+		# copy the NEW config to the old config - prepare for parsing incase
+		# the new config has some vars we need to render
+		oldConfig = structr.copy config, oldConfig
+
+		# render the NEW config from the OLD config + new config - at this point
+		# we ONLY want what's new so we can return it
+		renderedConfig = tpl.render(config, oldConfig)
+
+		# finally - copy the CHANGED vars over to the OLD config
+		@config = structr.copy(renderedConfig, @config)
+
+		# load the tasks
+		@_tasks.load tasks
+
+		# return only the changed stuff
+		renderedConfig
 
 
 	
