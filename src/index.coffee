@@ -156,9 +156,13 @@ class Config
 			if typeof v == 'string' && /^(\.|~)+(\/\w*)+/.test v
 				this.update path.normalize v.replace(/^\./, self.cwd + "/.").replace(/^~/, process.env.HOME + "/");
 
+
 		structr.copy config, @config
 		structr.copy config.mesh, @config if config.mesh
 
+		delete @config.mesh
+		delete @config.tasks
+		
 		if config.mesh	
 			@_tasks.load config.mesh.tasks or {}
 		else if config.tasks
