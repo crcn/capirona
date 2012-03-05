@@ -36,7 +36,7 @@ module.exports = class TargetTask extends BaseTask
 	###
 	###
 
-	_taskMessage: (target) -> "target #{if @route then @route.path.value else target.name || ""}"
+	_taskMessage: (target) -> "target #{target.currentPath}"
 
 	###
 	###

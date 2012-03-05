@@ -141,8 +141,11 @@ module.exports = class Tasks
 
 	add: (task) -> 
 
+		self = @
+
 		task.route.type = "task"
-		@_router.on task.route, (target, next) =>
+		@_router.on task.route, (target, next) ->
+			target.currentPath = self._router.parse.stringifySegments(@current.path.segments, target)
 			task.run target, next
 	###
 	###

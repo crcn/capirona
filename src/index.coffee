@@ -45,21 +45,40 @@ class Config
 	 Loads  configuration
 	###
 
-	load: (target, next) ->
+	load: (source, next) ->
 
 		self = @
+		seqNext = null
+		loaded = false
 
 		@_seq.seq () ->
-			self._configLoader.load target, @
+			seqNext = this
+
+			# happens if loading *while* running
+			seqNext() if loaded
+
+
+
+		seq().seq () ->
+			self._configLoader.load source, @
 
 		.seq (config) ->
 			self._onLoad config
 			@()
 
-		if next
-			@next () -> 
-				next.apply @, arguments
-				@()
+		.seq () ->
+
+			# callback provided? call it now.
+			if next
+				next.apply null, arguments
+
+			@()
+
+		.seq () ->
+			loaded = true
+			seqNext() if seqNext
+
+
 
 		@
 
@@ -83,15 +102,6 @@ class Config
 		@
 
 
-	###
-	###
-
-	cwd: (dir) ->
-		self = @
-		@_seq.seq () ->
-			self.cwd = dir
-			this()
-		@
 
 	###
 	 loads a config from disc - important because they MAY contain
@@ -151,6 +161,9 @@ class Config
 		
 		self = @
 
+		self.cwd = config.cwd if config.cwd
+
+
 		# fix relative paths
 		traverse(config).forEach (v) ->
 			if typeof v == 'string' && /^(\.|~)+(\/\w*)+/.test v
@@ -162,7 +175,7 @@ class Config
 
 		delete @config.mesh
 		delete @config.tasks
-		
+
 		if config.mesh	
 			@_tasks.load config.mesh.tasks or {}
 		else if config.tasks

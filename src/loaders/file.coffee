@@ -7,7 +7,7 @@ exports.run = (file, next, config) ->
 	
 	onResult = outcome.error next
 
-	config.cwd = path.dirname file
+	config._cwd = path.dirname file
 
 	step.async () ->
 			fs.readFile file, "utf8", @,

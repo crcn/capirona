@@ -50,7 +50,7 @@ exports.Task = class
 
 	_taskMessage: (target) -> 
 		if @route
-			"make #{@route.path.value}"
+			"make #{target.currentPath}"
 
 
 	###
