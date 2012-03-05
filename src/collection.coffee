@@ -16,7 +16,7 @@ class TaskMessenger extends beanpoll.Messenger
 
 	_next: (middleware) ->
 
-		structr.copy middleware.params, @request.query
+		structr.copy @flattenData(), @request.query
 
 		middleware.listener.call @, @request.query, @response.success () => @next()
 			
