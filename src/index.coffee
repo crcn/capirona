@@ -180,18 +180,9 @@ class Config
 		self = @
 		self.cwd = config.cwd if config.cwd
 
-		if config.mesh
-			tasks = config.mesh.tasks || {}
-			delete config.mesh.tasks
-		else if config.tasks
-			tasks = config.tasks
+		tasks = config.tasks
 
-		config.load = config.mesh.load if config.mesh and config.mesh.load
-
-
-
-		# don't want these parsed...
-		delete config.mesh
+		# don't this parsed
 		delete config.tasks
 
 
