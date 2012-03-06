@@ -171,6 +171,8 @@ class Config
 
 
 	###
+	 handles loaded config objects. 
+	 TODO: clean this shit - it hurts my eyes >.>
 	###
 
 	_onLoad: (config) ->
@@ -180,13 +182,19 @@ class Config
 
 		if config.mesh
 			tasks = config.mesh.tasks || {}
+			delete config.mesh.tasks
 		else if config.tasks
 			tasks = config.tasks
+
+		config.load = config.mesh.load if config.mesh and config.mesh.load
+
 
 
 		# don't want these parsed...
 		delete config.mesh
 		delete config.tasks
+
+
 
 
 		# oh god what a mess >.>
@@ -202,6 +210,19 @@ class Config
 		# render the NEW config from the OLD config + new config - at this point
 		# we ONLY want what's new so we can return it
 		renderedConfig = tpl.render(config, oldConfig)
+
+
+
+		## additional stuff to load
+		load = renderedConfig.load or []
+		load = [load] if load and (typeof load == 'string')
+
+
+		@load cfgPath for cfgPath in load
+
+
+		delete renderedConfig.load
+
 
 		# finally - copy the CHANGED vars over to the OLD config
 		@config = structr.copy(renderedConfig, @config)
