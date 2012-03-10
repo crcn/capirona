@@ -22,7 +22,7 @@ module.exports = class SearchTask extends BaseTask
 		for search of options.find
 			tasks.push({
 				search: new RegExp(search),
-				task: @tasks.factory.newTask(null, options.find[search])
+				task: @childTask(null, options.find[search])
 			})
 
 	###

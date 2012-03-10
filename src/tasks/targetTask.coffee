@@ -12,7 +12,7 @@ module.exports = class TargetTask extends BaseTask
 	###
 
 	load: (@target) ->
-		@task = @tasks.factory.newTask null, @target.task
+		@task = @childTask null, @target.task or @target.tasks
 
 	###
 	 passes the build phase 
@@ -22,6 +22,7 @@ module.exports = class TargetTask extends BaseTask
 		
 		obj = {}
 
+
 		#structr.copy @target, target
 		structr.copy target, obj
 		structr.copy @target, obj
@@ -30,13 +31,13 @@ module.exports = class TargetTask extends BaseTask
 		# parse the object incase vars are passed 
 		obj = tpl.render obj, target
 
-
 		@task.run obj, next
-	
+
 	###
 	###
 
-	_taskMessage: (target) -> "target #{target.currentPath}"
+	_taskMessage: (target) -> 
+		return "target #{target.currentPath}" if target.currentPath
 
 	###
 	###
@@ -48,4 +49,4 @@ module.exports = class TargetTask extends BaseTask
 
 
 module.exports.test = (config) ->
-	return !!config.task
+	return !!config.task or !!config.tasks

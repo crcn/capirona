@@ -21,26 +21,47 @@ This is the build system used for [mesh](/crcn/mesh).
 
 ### Usage
 
+
+A raw make config:
+
 ```javascript
 var capirona = require('capirona');
 
-capirona.make().load('/path/to/make.json').run('web:debug:hello', { name: 'craig' }, function(err) {
-	if(err) return console.error(err.message);
-	console.log('done without errors')
+
+capirona.make({
+	task: {
+		"hello/:name": {
+			"log": "hello <%-name %>!"
+		}	
+	}
+}).run('hello:world', function(err, result) {
+	
 });
+
 ```
+
+Loading configs from file:
+
+```javascript
+
+capirona.make({
+	task: {
+		"load": __dirname + "./make.json"
+	}
+}).run('hello:world', function() {
+	
+})
+
+
 
 ### API
 
-#### .make() 
+#### .make(config) 
 
 Creates a new make object
 
-#### .load(source)
 
-Loads the source of an object. Can be a `string`, or `object`.
-
-### .run(tasks[, args], callback)
+### .run(target, callback)
 
 Runs the loaded task
 

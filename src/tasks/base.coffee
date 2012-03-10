@@ -1,4 +1,5 @@
 
+
 ###
  base builder interface
 ###
@@ -8,7 +9,12 @@ exports.Task = class
 	###
 	###
 
-	constructor: (@route, @tasks = null, @parent = null) ->
+	constructor: (@route, @factory, @parent = null) -> @init()
+
+	###
+	###
+
+	init: ->
 	
 	###
 	 load from raw config
@@ -33,6 +39,12 @@ exports.Task = class
 		@_printMessage target
 
 		@_run target, next
+
+
+	###
+	###
+
+	childTask: (route, ops) -> @factory.newTask route, ops, @
 
 	###
 	###

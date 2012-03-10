@@ -45,8 +45,7 @@ module.exports = class Tasks
 	###
 	###
 
-	constructor: (@factory, @makeConfig) ->
-		@factory.tasks = @
+	constructor: (@factory) ->
 		@_router = beanpoll.router()
 		@_tasks
 

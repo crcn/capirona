@@ -30,7 +30,7 @@ module.exports = class ChainedTask extends BaseTask
 		@parallel = !!cfg.parallel
 		@chains = []
 		for rawTask in cfg.chain
-			@chains.push @tasks.factory.newTask(null, rawTask, @)
+			@chains.push @childTask(null, rawTask, @)
 		
 	###
 	###
@@ -57,4 +57,4 @@ module.exports = class ChainedTask extends BaseTask
 
 
 module.exports.test = (config) ->
-	return (config instanceof Array) or config.chain
+	return (config instanceof Array) or (config.chain instanceof Array)
