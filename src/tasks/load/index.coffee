@@ -32,10 +32,9 @@ module.exports = class LoadTask extends BaseTask
 	###
 
 	load: (ops) ->
-
-		@_loader = @_findLoader ops.load
 		@cfg = ops.load
-		@cfgDir = path.dirname @load
+		@cfgDir = path.dirname @cfg
+
 
 	###
 	 passes the build phase @
@@ -43,16 +42,19 @@ module.exports = class LoadTask extends BaseTask
 
 	_run: (target, next) -> 
 
-		target.cwd = process.cwd() if not target.cwd
+		target.cwd = @_findCwd()
 
+		
 		pt = fs.realpathSync @_cfgPath target
+
+		@liveDir = path.dirname pt
 
 		return next() if @factory.__loadedScripts[pt]
 
 		@factory.__loadedScripts[path] = true;
 
 
-		@_loader.run pt, target, next.success (config) =>
+		@_findLoader(pt).run pt, target, next.success (config) =>
 			@childTask(null, config).run(target, next)
 
 
@@ -61,6 +63,19 @@ module.exports = class LoadTask extends BaseTask
 
 	_taskMessage: (target) -> "loading ./#{path.relative @cfgDir, @_cfgPath target}"
 
+
+	###
+	###
+
+	_findCwd: () ->
+		cp = @parent
+
+		while cp
+			cwd = cp.liveDir
+			cp = cp.parent
+			break if cwd
+
+		cwd or process.cwd()
 
 	###
 	###

@@ -12,7 +12,7 @@ module.exports = class RegisterRoutesTask extends BaseTask
 	###
 	###
 
-	load: (@ops) -> @factory.commands.load @ops, @route
+	load: (@ops) -> @factory.commands.load @ops, @route, @
 
 
 	###

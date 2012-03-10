@@ -56,14 +56,14 @@ module.exports = class Tasks
 	###
 	###
 
-	load: (rawTasks, inherit) ->
+	load: (rawTasks, inherit, parent) ->
 
 		for routeStr of rawTasks
 			for route in @_parseTaskName routeStr, inherit
 
 				taskData = rawTasks[routeStr]
 
-				@add @factory.newTask route, taskData
+				@add @factory.newTask route, taskData, parent
 									
 		@
 			
