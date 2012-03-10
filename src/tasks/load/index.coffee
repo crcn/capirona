@@ -18,6 +18,8 @@ module.exports = class LoadTask extends BaseTask
 
 		@_loaders = []
 
+		@factory.__loadedScripts = {} if not @factory.__loadedScripts;
+
 		plugin.
 		loader().
 		factory (plugin) =>
@@ -43,8 +45,14 @@ module.exports = class LoadTask extends BaseTask
 
 		target.cwd = process.cwd() if not target.cwd
 
+		pt = fs.realpathSync @_cfgPath target
 
-		@_loader.run @cfg, next.success (config) =>
+		return next() if @factory.__loadedScripts[pt]
+
+		@factory.__loadedScripts[path] = true;
+
+
+		@_loader.run pt, next.success (config) =>
 			@childTask(null, config).run(target, next)
 
 
