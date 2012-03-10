@@ -35,7 +35,7 @@ capirona.make({
 		}
 	}	
 },
-"<%-task %>").run({ task: 'hello:craig' }, function(err, result) {
+"<%-command %>").run({ command: 'hello:craig' }, function(err, result) {
 	
 });
 
