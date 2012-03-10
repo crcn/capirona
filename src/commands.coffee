@@ -63,12 +63,7 @@ module.exports = class Tasks
 
 				taskData = rawTasks[routeStr]
 
-				task = @factory.newTask route, taskData
-
-				if task
-					@add task
-				else
-					@load taskData, route
+				@add @factory.newTask route, taskData
 									
 		@
 			

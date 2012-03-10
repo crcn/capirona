@@ -40,7 +40,7 @@ module.exports = class Factory
 	 important since SOME builders may load from disc
 	###
 
-	newTask: (name, ops, parent) ->
+	newTask: (route, ops, parent) ->
 
 
 		for clazz in @_classes
@@ -48,7 +48,7 @@ module.exports = class Factory
 			if clazz.test ops
 				
 				# new builder 
-				task = new clazz name, @, parent
+				task = new clazz route, @, parent
 
 				# load it with the options given
 				task.load ops
