@@ -13,6 +13,8 @@ module.exports = class TargetTask extends BaseTask
 
 	load: (@target) ->
 		@task = @childTask null, @target.task or @target.tasks or @target.commands
+		delete @target.tasks
+		delete @target.commands
 
 	###
 	 passes the build phase 
