@@ -3,7 +3,7 @@ step = require 'stepc'
 outcome = require 'outcome'
 path  = require "path"
 
-exports.run = (file, next) ->
+exports.run = (file, target, next) ->
 	
 	onResult = outcome.error next
 

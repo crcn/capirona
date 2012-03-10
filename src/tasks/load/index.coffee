@@ -52,7 +52,7 @@ module.exports = class LoadTask extends BaseTask
 		@factory.__loadedScripts[path] = true;
 
 
-		@_loader.run pt, next.success (config) =>
+		@_loader.run pt, target, next.success (config) =>
 			@childTask(null, config).run(target, next)
 
 
