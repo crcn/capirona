@@ -40,7 +40,7 @@ class TaskDirector extends beanpoll.Director
  collection of builders loaded from configurations
 ###
 
-module.exports = class Tasks
+module.exports = class Commands
 
 	###
 	###
@@ -91,18 +91,13 @@ module.exports = class Tasks
 
 		return target if not parent
 
-		parentCopy = structr.copy(parent)
-
+		parentCopy  = structr.copy(parent)
 		realPathStr = @_router.parse.stringifySegments parentCopy.path.segments.concat target.path.segments
-
 		target.path = @_router.parse.parsePath realPathStr
 
-		thru = target
-
-		while thru.thru
-			thru = @_fixThru thru.thru, parent
-
-		thru.thru = parentCopy.thru
+		thru        = target
+		thru        = @_fixThru thru.thru, parent while thru.thru	
+		thru.thru   = parentCopy.thru
 
 		target
 
