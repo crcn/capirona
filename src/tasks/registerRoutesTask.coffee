@@ -20,7 +20,7 @@ module.exports = class RegisterRoutesTask extends BaseTask
 	###
 
 	_run: (target, next) -> 
-		@factory.routes.load @ops
+		@factory.commands.load @ops
 		next()
 
 	###

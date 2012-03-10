@@ -12,7 +12,7 @@ module.exports = class TargetTask extends BaseTask
 	###
 
 	load: (@target) ->
-		@task = @childTask null, @target.task or @target.tasks
+		@task = @childTask null, @target.task or @target.tasks or @target.commands
 
 	###
 	 passes the build phase 
@@ -49,4 +49,4 @@ module.exports = class TargetTask extends BaseTask
 
 
 module.exports.test = (config) ->
-	return !!config.task or !!config.tasks
+	return !!config.task or !!config.tasks or !!config.commands

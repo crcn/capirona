@@ -1,15 +1,7 @@
-fs             = require "fs"
-path           = require "path"
-step           = require "stepc"
-Routes          = require "./routes"
-traverse       = require "traverse"
-Loader         = require "./loader"
+
 TaskFactory    = require "./factory"
-_              = require "underscore"
 crc32          = require "crc32"
 plugin         = require "plugin"
-structr		   = require "structr"
-tpl            = require "./tpl"
 
 
 

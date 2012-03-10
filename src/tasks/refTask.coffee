@@ -20,7 +20,7 @@ module.exports = class RefTask extends BaseTask
 	###
 
 	_run: (target, next) -> 
-		@factory.routes.run @_find(target), target, next
+		@factory.commands.run @_find(target), target, next
 
 	###
 	###

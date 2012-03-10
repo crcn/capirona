@@ -2,7 +2,7 @@ fs            = require "fs"
 path          = require "path"
 step          = require "stepc"
 outcome       = require "outcome"
-Routes        = require "./routes"
+Commands      = require "./commands"
 
 
 
@@ -17,7 +17,7 @@ module.exports = class Factory
 
 	constructor: () ->
 		@_classes = []
-		@routes = new Routes @
+		@commands = new Commands @
 		
 	###
 	 adds a builder class - must also be a tester

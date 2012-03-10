@@ -6,7 +6,7 @@ This is the build system used for [mesh](/crcn/mesh).
 
 ```javascript
 {
-	"tasks": {
+	"commands": {
 		"web": {
 			"say/hello -> debug/:task": {
 				"log": "make <%=task %>"
@@ -29,8 +29,10 @@ var capirona = require('capirona');
 
 
 capirona.make({
-	"hello/:name": {
-		"log": "hello <%-name %>!"
+	"commands": {
+		"hello/:name": {
+			"log": "hello <%-name %>!"
+		}
 	}	
 },
 "<%-task %>").run({ task: 'hello:craig' }, function(err, result) {
