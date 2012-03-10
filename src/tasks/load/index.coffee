@@ -1,9 +1,9 @@
-BaseTask    = require("../base").Task
 fs          = require "fs"
-structr		= require "structr"
-path        = require "path"
 tpl         = require "../../tpl"
+path        = require "path"
 plugin      = require "plugin"
+structr     = require "structr"
+BaseTask    = require("../base").Task
 
 ###
  builds from a .js file

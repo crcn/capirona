@@ -1,7 +1,7 @@
-fs = require 'fs'
-step = require 'stepc'
+fs      = require 'fs'
+step    = require 'stepc'
+path    = require "path"
 outcome = require 'outcome'
-path  = require "path"
 
 exports.run = (file, target, next) ->
 	
