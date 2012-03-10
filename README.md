@@ -29,28 +29,15 @@ var capirona = require('capirona');
 
 
 capirona.make({
-	task: {
-		"hello/:name": {
-			"log": "hello <%-name %>!"
-		}	
-	}
-}).run('hello:world', function(err, result) {
+	"hello/:name": {
+		"log": "hello <%-name %>!"
+	}	
+},
+"<%-task %>").run({ task: 'hello:craig' }, function(err, result) {
 	
 });
 
 ```
-
-Loading configs from file:
-
-```javascript
-
-capirona.make({
-	task: {
-		"load": __dirname + "./make.json"
-	}
-}).run('hello:world', function() {
-	
-})
 
 
 
