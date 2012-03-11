@@ -33,6 +33,7 @@ module.exports = class LoadTask extends BaseTask
 
 	load: (ops) ->
 		@cfg = ops.load
+		@cwd = ops.cwd
 		@cfgDir = path.dirname @cfg
 
 
@@ -44,6 +45,7 @@ module.exports = class LoadTask extends BaseTask
 
 		target.cwd = @_findCwd()
 
+
 		
 		pt = fs.realpathSync @_cfgPath target
 
@@ -53,8 +55,12 @@ module.exports = class LoadTask extends BaseTask
 
 		@factory.__loadedScripts[path] = true;
 
-
 		@_findLoader(pt).run pt, target, next.success (config) =>
+
+			if @cwd
+				target.cwd = tpl.render @cwd, target
+
+			console.log target.cwd
 			@childTask(null, config).run(target, next)
 
 
