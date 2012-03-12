@@ -25,7 +25,8 @@
     "dolce": "0.0.x",
     "validator": "0.3.x",
     "colors": "0.6.x.-1",
-    "colorcode": "0.0.x"
+    "colorcode": "0.0.x",
+    "crema": "0.1.x"
   },
   "devDependencies": {}
 }

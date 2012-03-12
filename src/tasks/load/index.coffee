@@ -4,6 +4,7 @@ path        = require "path"
 plugin      = require "plugin"
 structr     = require "structr"
 BaseTask    = require("../base").Task
+crema       = require "crema"
 
 ###
  builds from a .js file
@@ -34,6 +35,7 @@ module.exports = class LoadTask extends BaseTask
 	load: (ops) ->
 		@cfg = ops.load
 		@cwd = ops.cwd
+		@namespace = ops.namespace or "/"
 		@cfgDir = path.dirname @cfg
 
 
@@ -44,8 +46,7 @@ module.exports = class LoadTask extends BaseTask
 	_run: (target, next) -> 
 
 		target.cwd = @_findCwd()
-
-
+		ns = crema(@namespace)
 		
 		pt = fs.realpathSync @_cfgPath target
 
@@ -60,7 +61,7 @@ module.exports = class LoadTask extends BaseTask
 			if @cwd
 				target.cwd = tpl.render @cwd, target
 
-			@childTask(null, config).run(target, next)
+			@childTask(ns[0], config).run(target, next)
 
 
 	###
