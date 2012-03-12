@@ -46,7 +46,7 @@ module.exports = class LoadTask extends BaseTask
 	_run: (target, next) -> 
 
 		target.cwd = @_findCwd()
-		ns = crema(@namespace)
+		ns = crema(tpl.render @namespace, target)
 		
 		pt = fs.realpathSync @_cfgPath target
 
