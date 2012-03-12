@@ -5,6 +5,17 @@ plugin         = require "plugin"
 require "colors"
 
 
+require("colorcode").
+code(/^(==> )/, "$1".bold.cyan).
+#code(/(([^\/\s]+\/)+([^\/\s]+)?)/g,"$1".bold).
+error( (msg) ->
+	return msg.bold.red
+)
+.info( (msg) ->
+	return msg.grey
+)
+.export(console)
+
 
 ### 
  the mesh config value object

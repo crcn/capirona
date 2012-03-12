@@ -23,7 +23,7 @@
 			"file": "src/index.coffee",
 			"settings":
 			{
-				"buffer_size": 988,
+				"buffer_size": 1200,
 				"line_ending": "Unix"
 			}
 		},
@@ -135,7 +135,7 @@
 			"file": "src/tasks/targetTask.coffee",
 			"settings":
 			{
-				"buffer_size": 864,
+				"buffer_size": 1418,
 				"line_ending": "Unix"
 			}
 		},
@@ -159,7 +159,7 @@
 			"file": "src/tasks/load/index.coffee",
 			"settings":
 			{
-				"buffer_size": 1420,
+				"buffer_size": 1517,
 				"line_ending": "Unix"
 			}
 		},
@@ -215,7 +215,7 @@
 			"file": "src/tasks/shellTask.coffee",
 			"settings":
 			{
-				"buffer_size": 977,
+				"buffer_size": 1050,
 				"line_ending": "Unix"
 			}
 		},
@@ -354,7 +354,15 @@
 			"file": "src/tasks/base.coffee",
 			"settings":
 			{
-				"buffer_size": 1938,
+				"buffer_size": 1932,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/color/colorcode.coffee",
+			"settings":
+			{
+				"buffer_size": 0,
 				"line_ending": "Unix"
 			}
 		},
@@ -421,7 +429,7 @@
 			"file": "lib/factory.js",
 			"settings":
 			{
-				"buffer_size": 1379,
+				"buffer_size": 1381,
 				"line_ending": "Unix"
 			}
 		},
@@ -449,6 +457,14 @@
 			"settings":
 			{
 				"buffer_size": 370,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/tmp/subl stdin LLKUeh.txt",
+			"settings":
+			{
+				"buffer_size": 0,
 				"line_ending": "Unix"
 			}
 		},
@@ -818,7 +834,7 @@
 	"groups":
 	[
 		{
-			"selected": 52,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -826,15 +842,15 @@
 					"file": "src/index.coffee",
 					"settings":
 					{
-						"buffer_size": 988,
+						"buffer_size": 1200,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								104,
-								104
+								180,
+								180
 							]
 						],
 						"settings":
@@ -1132,7 +1148,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 104.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1196,15 +1212,15 @@
 					"file": "src/tasks/targetTask.coffee",
 					"settings":
 					{
-						"buffer_size": 864,
+						"buffer_size": 1418,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								358,
-								358
+								1316,
+								1316
 							]
 						],
 						"settings":
@@ -1213,7 +1229,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 239.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1276,15 +1292,15 @@
 					"file": "src/tasks/load/index.coffee",
 					"settings":
 					{
-						"buffer_size": 1420,
+						"buffer_size": 1517,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								995,
+								995
 							]
 						],
 						"settings":
@@ -1459,15 +1475,15 @@
 					"file": "src/tasks/shellTask.coffee",
 					"settings":
 					{
-						"buffer_size": 977,
+						"buffer_size": 1050,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								281,
-								281
+								766,
+								766
 							]
 						],
 						"settings":
@@ -1476,7 +1492,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 29.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1519,8 +1535,8 @@
 						"selection":
 						[
 							[
-								330,
-								330
+								754,
+								754
 							]
 						],
 						"settings":
@@ -1529,7 +1545,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 119.0,
+						"translation.y": 118.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1769,7 +1785,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 287.0,
+						"translation.y": 345.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1914,15 +1930,15 @@
 					"file": "src/tasks/base.coffee",
 					"settings":
 					{
-						"buffer_size": 1938,
+						"buffer_size": 1932,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1564,
-								1564
+								1895,
+								1895
 							]
 						],
 						"settings":
@@ -1931,13 +1947,39 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 960.0,
+						"translation.y": 1349.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 42,
+					"file": "src/color/colorcode.coffee",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Coffeescript/CoffeeScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 43,
 					"file": "/tmp/subl stdin XTdunw.txt",
 					"settings":
 					{
@@ -1963,7 +2005,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 43,
+					"buffer": 44,
 					"file": "/Users/craig/Dropbox/Developer/Jobs/Spice/private/teamdigest/lib/site/package.json",
 					"settings":
 					{
@@ -1991,7 +2033,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 44,
+					"buffer": 45,
 					"file": "src/tpl/parse.js",
 					"settings":
 					{
@@ -2017,7 +2059,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 45,
+					"buffer": 46,
 					"file": "/tmp/subl stdin B2MbGz.txt",
 					"settings":
 					{
@@ -2043,7 +2085,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 46,
+					"buffer": 47,
 					"file": "/tmp/subl stdin vYXPy1.txt",
 					"settings":
 					{
@@ -2069,7 +2111,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 47,
+					"buffer": 48,
 					"file": "package.json",
 					"settings":
 					{
@@ -2097,7 +2139,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 48,
+					"buffer": 49,
 					"file": "src/tpl/index.coffee",
 					"settings":
 					{
@@ -2108,8 +2150,8 @@
 						"selection":
 						[
 							[
-								24,
-								24
+								238,
+								238
 							]
 						],
 						"settings":
@@ -2124,11 +2166,11 @@
 					"type": "text"
 				},
 				{
-					"buffer": 49,
+					"buffer": 50,
 					"file": "lib/factory.js",
 					"settings":
 					{
-						"buffer_size": 1379,
+						"buffer_size": 1381,
 						"regions":
 						{
 						},
@@ -2152,7 +2194,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 50,
+					"buffer": 51,
 					"file": "src/loaders/script.coffee",
 					"settings":
 					{
@@ -2179,7 +2221,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 51,
+					"buffer": 52,
 					"file": "lib/tasks/base.js",
 					"settings":
 					{
@@ -2201,13 +2243,13 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 120.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 52,
+					"buffer": 53,
 					"file": "src/tasks/load/loaders/file.coffee",
 					"settings":
 					{
@@ -2234,7 +2276,33 @@
 					"type": "text"
 				},
 				{
-					"buffer": 53,
+					"buffer": 54,
+					"file": "/tmp/subl stdin LLKUeh.txt",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 55,
 					"file": "src/tasks/load/loaders/script.coffee",
 					"settings":
 					{
@@ -2251,7 +2319,8 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/Coffeescript/CoffeeScript.tmLanguage"
+							"syntax": "Packages/Coffeescript/CoffeeScript.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -2260,7 +2329,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 54,
+					"buffer": 56,
 					"file": "src/tasks/registerRoutesTask.coffee",
 					"settings":
 					{
@@ -2287,7 +2356,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 55,
+					"buffer": 57,
 					"file": "src/tasks/load/fnTask.coffee",
 					"settings":
 					{
@@ -2313,7 +2382,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 56,
+					"buffer": 58,
 					"file": "src/tasks/fnTask.coffee",
 					"settings":
 					{
@@ -2340,7 +2409,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 57,
+					"buffer": 59,
 					"file": "lib/commands.js",
 					"settings":
 					{
@@ -2351,8 +2420,8 @@
 						"selection":
 						[
 							[
-								0,
-								0
+								538,
+								538
 							]
 						],
 						"settings":
@@ -2362,13 +2431,13 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1395.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 58,
+					"buffer": 60,
 					"file": "src/tasks/load/loaders/object.coffee",
 					"settings":
 					{
