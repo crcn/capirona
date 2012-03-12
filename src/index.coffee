@@ -10,9 +10,9 @@ fileRegexp = /(\s+\/([^\/\s]+\/)+[^\/\s]+)/;
 fileRegexp2 = /(\s+\/([^\/\s]+\/)+[^\/\s]+)/g;
 
 require("colorcode").
-code(/^(==> )/, "$1".cyan).
-code(/( -> )/, "$1".cyan).
-code(/( \+ )/g, "$1".cyan).
+code(/\==> (\w+)/, "==>".cyan+" $1".magenta).
+code(/( -> )/, "$1".yellow).
+code(/( \+ )/g, "$1".yellow).
 code(fileRegexp, (value) ->
 	value.match(fileRegexp2).forEach (file) ->
 		value = value.replace file, " " + path.relative(process.cwd(), file.replace(/\s+/g,""))
