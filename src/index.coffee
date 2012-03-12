@@ -11,7 +11,7 @@ fileRegexp2 = /(\s+\/([^\/\s]+\/)+[^\/\s]+)/g;
 
 require("colorcode").
 code(/\==> (\w+)/, "==>".cyan+" $1".magenta).
-code(/\==> load/, "==> ".cyan+"load".magenta.bold).
+code(/\==> load (.*)/, "==> ".cyan+"load".magenta.bold+" $1".bold).
 code(/( -> )/, "$1".yellow).
 code(/( \+ )/g, "$1".yellow).
 code(fileRegexp, (value) ->
