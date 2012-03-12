@@ -22,7 +22,6 @@ module.exports = class ShellTask extends BaseTask
 
 		cmd = @_cmd target
 
-
 		child = exec cmd, { cwd: target.cwd, maxBuffer: 0 }, next
 
 		# taking a look at the sauce code - there's a buffer that's appended.

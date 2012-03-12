@@ -34,9 +34,8 @@ module.exports = class LoadTask extends BaseTask
 
 	load: (ops) ->
 		@cfg = ops.load
-		@cwd = ops.cwd
 		@namespace = ops.namespace or "/"
-		@cfgDir = path.dirname @cfg
+		@cwd = ops.cwd or @cfgDir
 
 
 	###
@@ -49,10 +48,7 @@ module.exports = class LoadTask extends BaseTask
 		ns = crema(tpl.render @namespace, target)
 		
 		pt = fs.realpathSync @_cfgPath target
-
 		@liveDir = path.dirname pt
-
-
 
 
 		return next() if @factory.__loadedScripts[pt]
@@ -61,8 +57,7 @@ module.exports = class LoadTask extends BaseTask
 
 		@_findLoader(pt).run pt, target, next.success (config) =>
 
-			if @cwd
-				target.cwd = tpl.render @cwd, target
+			target.cwd = tpl.render @cwd or @liveDir, target
 
 			@currentData = structr.copy target
 
