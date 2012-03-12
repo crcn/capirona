@@ -7,6 +7,7 @@ tpl         = require "../tpl"
 ###
 
 module.exports = class TargetTask extends BaseTask
+		
 	
 	###
 	###
@@ -24,32 +25,31 @@ module.exports = class TargetTask extends BaseTask
 		
 		obj = {}
 
+
 		# oh god what a mess >.>
 		# TODO: clean me.
 
 		# first need to copy the old config
 		oldConfig = structr.copy target
 
+		newConfig = @target
+
 		# copy the NEW config to the old config - prepare for parsing incase
 		# the new config has some vars we need to render
-		oldConfig = structr.copy @target, oldConfig
+		oldConfig = structr.copy newConfig, oldConfig
+
 
 		# render the NEW config from the OLD config + new config - at this point
 		# we ONLY want what's new so we can return it
-		renderedConfig = tpl.render(@target, oldConfig)
+		renderedConfig = tpl.render(newConfig, oldConfig)
+
 
 		# finally - copy the CHANGED vars over to the OLD config
 		target = structr.copy(renderedConfig, target)
 
 
+		@currentData = target
 
-
-		#structr.copy target, obj
-		#structr.copy @target, obj
-
-
-		# parse the object incase vars are passed 
-		#obj = tpl.render obj, target
 		obj = target
 
 		@task.run obj, next
@@ -57,11 +57,9 @@ module.exports = class TargetTask extends BaseTask
 	###
 	###
 
-	#_taskMessage: (target) -> 
-	#	return "make with #{target.currentPath}" if target.currentPath
-
 	_printMessage: () ->
-		
+
+
 
 
 

@@ -9,6 +9,7 @@ path           = require "path"
 fileRegexp = /(\s+\/([^\/\s]+\/)+[^\/\s]+)/;
 fileRegexp2 = /(\s+\/([^\/\s]+\/)+[^\/\s]+)/g;
 
+
 require("colorcode").
 code(/\==> (\w+)/, "==>".cyan+" $1".magenta).
 code(/\==> load (.*)/, "==> ".cyan+"load".magenta.bold+" $1".bold).
@@ -28,6 +29,7 @@ error( (msg) ->
 	return String(msg).stripColors.grey
 )
 .export(console)
+
 
 
 ### 

@@ -1,4 +1,4 @@
-
+structr = require "structr"
 
 ###
  base builder interface
@@ -36,17 +36,22 @@ exports.Task = class
 			target.namespace   = @route.path.value
 			target.currentTask = @route.path.value.split('/').pop()
 
-		@_printMessage target
+		scopedData = @_copyCurrentScopedData(target)
 
-		@_run target, next
+
+		@_printMessage scopedData
+
+		@_run scopedData, next
 
 
 	###
+	 creates a child task with this as the parent
 	###
 
 	childTask: (route, ops) -> @factory.newTask route, ops, @
 
 	###
+	 validates to make sure this task as the right data
 	###
 
 	validate: (target) -> 
@@ -72,6 +77,7 @@ exports.Task = class
 
 
 	###
+	 returns a new validation tester
 	###
 
 
@@ -90,6 +96,7 @@ exports.Task = class
 		}
 
 	###
+	 returns a reference to an object for validation
 	###
 
 	_ref: (target, property, value) ->
@@ -108,24 +115,28 @@ exports.Task = class
 
 
 	###
+	 the required params for the task
 	###
 
 	_params: () -> @params
 
 	###
+	 overridable method for running the task
 	###
 
 	_run: (target, next) ->
 
 	###
+	 prints the CLI task message 
 	###
 
 	_printMessage: (target) ->
 		message = @_taskMessage target
-		console.log "#{@_pointer()}#{message}" if message
+		console.log "==> #{message}" if message
 		
 
 	###
+	 the task message to show
 	###
 
 	_taskMessage: (target) -> 
@@ -134,9 +145,30 @@ exports.Task = class
 
 
 	###
+	 copies the LIVE parent data - this is similar to setting
+	 a variable scope
 	###
 
-	_pointer: () -> "==> "
+	_copyCurrentScopedData: (target) ->
+		pd = structr.copy @currentData
+		cp = @
+
+		while cp.parent
+
+			pc = structr.copy cp.parent.currentData
+
+
+			pd = structr.copy pd, pc if cp.parent.currentData
+			cp = cp.parent
+
+		# cwd is the only data that changes with the given scope.
+		target.cwd = pd.cwd or target.cwd
+
+		structr.copy target, pd
+
+
+###
+###
 
 module.exports.test = () -> false
 

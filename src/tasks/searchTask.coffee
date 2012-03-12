@@ -41,7 +41,7 @@ module.exports = class SearchTask extends BaseTask
 			
 			for filt in @findTasks
 				if filt.search.test(options.source)
-					return filt.task.run structr.copy(target, { file: options.source }), nextTask.success () ->
+					return filt.task.run structr.copy({ file: options.source }, target), nextTask.success () ->
 							next()
 
 			next()

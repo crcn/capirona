@@ -52,6 +52,9 @@ module.exports = class LoadTask extends BaseTask
 
 		@liveDir = path.dirname pt
 
+
+
+
 		return next() if @factory.__loadedScripts[pt]
 
 		@factory.__loadedScripts[path] = true;
@@ -60,6 +63,8 @@ module.exports = class LoadTask extends BaseTask
 
 			if @cwd
 				target.cwd = tpl.render @cwd, target
+
+			@currentData = structr.copy target
 
 			@childTask(ns[0], config).run(target, next)
 

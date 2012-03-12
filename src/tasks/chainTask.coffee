@@ -12,6 +12,7 @@ structr     = require "structr"
  "firefox":["combine","compile-firefox"]
 ###
 
+
 module.exports = class ChainedTask extends BaseTask
 	
 	###
@@ -41,6 +42,7 @@ module.exports = class ChainedTask extends BaseTask
 	###
 
 	_run: (target, next) ->
+
 
 		# target = structr.copy(target)
 
