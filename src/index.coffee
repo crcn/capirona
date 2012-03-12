@@ -6,14 +6,15 @@ require "colors"
 path           = require "path"
 
 
-fileRegexp = /(\s+\/([^\/\s]+\/)+)/g;
+fileRegexp = /(\s+\/([^\/\s]+\/)+)/;
+fileRegexp2 = /(\s+\/([^\/\s]+\/)+)/g;
 
 require("colorcode").
 code(/^(==> )/, "$1".cyan).
 code(/( -> )/, "$1".cyan).
 code(/( \+ )/, "$1".cyan).
 code(fileRegexp, (value) ->
-	value.match(fileRegexp).forEach (file) ->
+	value.match(fileRegexp2).forEach (file) ->
 		value = value.replace file, " " + path.relative(process.cwd(), file.replace(/\s+/g,""))
 
 	value
