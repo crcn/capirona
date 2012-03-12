@@ -3,16 +3,27 @@ TaskFactory    = require "./factory"
 crc32          = require "crc32"
 plugin         = require "plugin"
 require "colors"
+path           = require "path"
 
+
+fileRegexp = /(\s+\/([^\/\s]+\/)+)/g;
 
 require("colorcode").
-code(/^(==> )/, "$1".bold.cyan).
-#code(/(([^\/\s]+\/)+([^\/\s]+)?)/g,"$1".bold).
+code(/^(==> )/, "$1".cyan).
+code(/( -> )/, "$1".cyan).
+code(/( \+ )/, "$1".cyan).
+code(fileRegexp, (value) ->
+	value.match(fileRegexp).forEach (file) ->
+		value = value.replace file, " " + path.relative(process.cwd(), file.replace(/\s+/g,""))
+
+	value
+
+).
 error( (msg) ->
-	return msg.bold.red
+	return String(msg).stripColors.bold.red
 )
 .info( (msg) ->
-	return msg.grey
+	return String(msg).stripColors.grey
 )
 .export(console)
 

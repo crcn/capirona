@@ -60,14 +60,13 @@ module.exports = class LoadTask extends BaseTask
 			if @cwd
 				target.cwd = tpl.render @cwd, target
 
-			console.log target.cwd
 			@childTask(null, config).run(target, next)
 
 
 	###
 	###
 
-	_taskMessage: (target) -> "loading ./#{path.relative @cfgDir, @_cfgPath target}"
+	_taskMessage: (target) -> "load #{@_cfgPath target}"
 
 
 	###
