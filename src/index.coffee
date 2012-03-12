@@ -6,8 +6,8 @@ require "colors"
 path           = require "path"
 
 
-fileRegexp = /(\s+\/([^\/\s]+\/)+)/;
-fileRegexp2 = /(\s+\/([^\/\s]+\/)+)/g;
+fileRegexp = /(\s+\/([^\/\s]+\/)+[^\/\s]+)/;
+fileRegexp2 = /(\s+\/([^\/\s]+\/)+[^\/\s]+)/g;
 
 require("colorcode").
 code(/^(==> )/, "$1".cyan).
