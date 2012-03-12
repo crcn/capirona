@@ -2,6 +2,7 @@
 TaskFactory    = require "./factory"
 crc32          = require "crc32"
 plugin         = require "plugin"
+require "colors"
 
 
 

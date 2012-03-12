@@ -1,29 +1,30 @@
 {
-    "author": "Craig Condon",
-    "name": "capirona",
-    "description": "Javascript Build System",
-    "version": "0.0.14",
-    "repository": {
-        "type": "git",
-        "url": "git://github.com/crcn/capirona.git"
-    },
-    "main": "./lib/index.js",
-    "dependencies": {
-        "crc32": "0.2.x",
-        "stepc": "0.0.x",
-        "traverse": "0.5.x",
-        "underscore": "1.2.x",
-        "optimist": "0.3.x",
-        "structr": "0.1.x",
-        "outcome": "0.0.x",
-        "handlebars": "*",
-        "beanpoll": "0.2.x",
-        "ejs": "0.6.x",
-        "plugin": "0.0.x",
-        "seq": "0.3.x",
-        "walkr": "0.0.x",
-        "dolce": "0.0.x",
-        "validator": "0.3.x"
-    },
-    "devDependencies": {}
+  "author": "Craig Condon",
+  "name": "capirona",
+  "description": "Javascript Build System",
+  "version": "0.0.14",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/crcn/capirona.git"
+  },
+  "main": "./lib/index.js",
+  "dependencies": {
+    "crc32": "0.2.x",
+    "stepc": "0.0.x",
+    "traverse": "0.5.x",
+    "underscore": "1.2.x",
+    "optimist": "0.3.x",
+    "structr": "0.1.x",
+    "outcome": "0.0.x",
+    "handlebars": "*",
+    "beanpoll": "0.2.x",
+    "ejs": "0.6.x",
+    "plugin": "0.0.x",
+    "seq": "0.3.x",
+    "walkr": "0.0.x",
+    "dolce": "0.0.x",
+    "validator": "0.3.x",
+    "colors": "0.6.x.-1"
+  },
+  "devDependencies": {}
 }

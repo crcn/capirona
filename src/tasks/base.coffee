@@ -136,7 +136,7 @@ exports.Task = class
 	###
 	###
 
-	_pointer: () -> "---> "
+	_pointer: () -> "==> ".cyan
 
 module.exports.test = () -> false
 
