@@ -51,19 +51,16 @@ module.exports = class TargetTask extends BaseTask
 		# parse the object incase vars are passed 
 		#obj = tpl.render obj, target
 		obj = target
-		
+
 		@task.run obj, next
 
 	###
 	###
 
-	_taskMessage: (target) -> 
-		return "target #{target.currentPath}" if target.currentPath
+	#_taskMessage: (target) -> 
+	#	return "make with #{target.currentPath}" if target.currentPath
 
-	###
-	###
-
-	_pointer: () -> "* "
+	_printMessage: () ->
 		
 
 
