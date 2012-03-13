@@ -33,8 +33,9 @@ module.exports = class RegisterRoutesTask extends BaseTask
 	_findInheritable: () ->
 		cr = @
 
-		while cr.parent and !cr.route
+		while cr.parent
 			cr = cr.parent
+			break if cr.route
 
 		return cr.route
 
