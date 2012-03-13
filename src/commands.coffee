@@ -58,6 +58,7 @@ module.exports = class Commands
 
 	load: (rawTasks, inherit, parent) ->
 
+
 		for routeStr of rawTasks
 			for route in @_parseTaskName routeStr, inherit
 

@@ -14,7 +14,6 @@ module.exports = class RefTask extends BaseTask
 
 	load: (@taskName) ->
 
-
 	###
 	 passes the build phase 
 	###
