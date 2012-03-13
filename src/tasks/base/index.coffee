@@ -166,6 +166,21 @@ exports.Task = class
 
 		structr.copy target, pd
 
+	
+
+	###
+	###
+
+	_findInheritable: () ->
+		cr = @
+
+		while cr
+			break if cr.route
+			cr = cr.parent
+
+		return cr
+
+
 
 ###
 ###
