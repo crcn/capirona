@@ -34,7 +34,7 @@ module.exports = class LoadTask extends BaseTask
 
 	load: (ops) ->
 		@cfg = ops.load
-		@namespace = ops.namespace or "/"
+		@namespace = ops.namespace
 		@cwd = ops.cwd or @cfgDir
 
 
@@ -45,7 +45,7 @@ module.exports = class LoadTask extends BaseTask
 	_run: (target, next) -> 
 
 		target.cwd = @_findCwd()
-		ns = crema(tpl.render @namespace, target)
+		ns = crema(tpl.render @_findNamespace() or "/", target)
 		
 		pt = fs.realpathSync @_cfgPath target
 		@liveDir = path.dirname pt
@@ -63,6 +63,19 @@ module.exports = class LoadTask extends BaseTask
 
 			@childTask(ns[0], config).run(target, next)
 
+	###
+	###
+
+	_findNamespace: () ->
+		cp = @
+		ns = null
+
+		while cp
+			ns = cp.namespace
+			break if ns
+			cp = cp.parent
+
+		return ns
 
 	###
 	###

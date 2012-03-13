@@ -12,7 +12,8 @@ module.exports = class RegisterRoutesTask extends BaseTask
 	###
 	###
 
-	load: (@ops) -> @factory.commands.load @ops, @_findInheritable(), @
+	load: (@ops) -> 
+		@factory.commands.load @ops, @_findInheritable(), @
 
 
 	###
