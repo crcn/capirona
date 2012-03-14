@@ -1,6 +1,7 @@
 BaseTask    = require("./base").Task
 structr     = require "structr"
 tpl         = require "../tpl"
+watch_r     = require "watch_r"
 
 ###
  the ENTRY point into the build system
@@ -13,9 +14,11 @@ module.exports = class TargetTask extends BaseTask
 	###
 
 	load: (@target) ->
-		@task = @childTask null, @target.task or @target.tasks or @target.commands
-		delete @target.tasks
-		delete @target.commands
+		@task = @childTask null, target.task or target.tasks or target.commands
+		@watch = target.watch
+		@timeout = target.timeout
+		delete target.tasks
+		delete target.commands
 
 	###
 	 passes the build phase 
@@ -52,7 +55,35 @@ module.exports = class TargetTask extends BaseTask
 
 		obj = target
 
-		@task.run obj, next
+
+		@_run2 obj, next
+
+	###
+	###
+
+	_watch: (target) ->
+
+		@_watcher.dispose() if @_watcher
+		@_watcher = undefined
+
+		watch_r @watch, (err, watcher) =>
+
+			@_watcher = watcher
+
+			watcher.on "change", (target) =>
+				@_run2 target
+
+
+
+	###
+	###
+
+	_run2: (target, next) ->
+
+		@task.run target, () =>
+			next.apply this, arguments if next
+			@_watch target if @watch
+
 
 	###
 	###
