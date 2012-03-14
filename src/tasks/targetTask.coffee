@@ -32,6 +32,8 @@ module.exports = class TargetTask extends BaseTask
 		# oh god what a mess >.>
 		# TODO: clean me.
 
+		this.watchPath = tpl.render(this.watch, target) if this.watch;
+
 		# first need to copy the old config
 		oldConfig = structr.copy target
 
@@ -63,14 +65,10 @@ module.exports = class TargetTask extends BaseTask
 
 	_watch: (target) ->
 
-		@_watcher.dispose() if @_watcher
-		@_watcher = undefined
-
-		watch_r @watch, (err, watcher) =>
-
-			@_watcher = watcher
+		watch_r @watchPath, (err, watcher) =>
 
 			watcher.on "change", (target) =>
+				watcher.dispose()
 				@_run2 target
 
 
