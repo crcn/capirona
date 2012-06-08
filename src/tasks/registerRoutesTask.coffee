@@ -13,7 +13,7 @@ module.exports = class RegisterRoutesTask extends BaseTask
 	###
 
 	load: (@ops) -> 
-		@factory.commands.load @ops, @_findInheritable().route, @
+		@factory.commands.load @ops, @_findInheritable()?.route, @
 
 
 	###
