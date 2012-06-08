@@ -21,7 +21,7 @@ module.exports = class SearchTask extends BaseTask
 
 		for search of options.find
 			tasks.push({
-				search: new RegExp(search),
+				search: search,
 				task: @childTask(null, options.find[search])
 			})
 
@@ -40,7 +40,8 @@ module.exports = class SearchTask extends BaseTask
 		filter (options, next) =>
 			
 			for filt in @findTasks
-				if filt.search.test(options.source)
+				search = new RegExp(tpl.render(filt.search, target))
+				if search.test(options.source)
 					return filt.task.run structr.copy({ file: options.source }, target), nextTask.success () ->
 							next()
 
