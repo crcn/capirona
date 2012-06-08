@@ -19,7 +19,8 @@ render = (value, data) ->
 
 		
 		if(data.cwd)
-			rendered = path.normalize rendered.replace(/^\./, data.cwd + "/.").replace(/^~/, process.env.HOME + "/");
+			# rendered = path.normalize rendered.replace(/^\./, data.cwd + "/.").replace(/^~/, process.env.HOME + "/");
+			rendered = path.normalize rendered.replace(/^~/, process.env.HOME + "/");
 
 		this.update(rendered)
 
