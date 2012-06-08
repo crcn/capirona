@@ -1,7 +1,6 @@
 seq			= require "seq"
 BaseTask    = require("./base").Task
 outcome     = require "outcome"
-structr     = require "structr"
 
 
 ###
