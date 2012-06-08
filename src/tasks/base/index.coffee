@@ -14,6 +14,14 @@ exports.Task = class
 	###
 	###
 
+	root: ->
+		cp = @
+		cp = cp.parent while cp.parent
+		return cp
+
+	###
+	###
+
 	init: ->
 	
 	###
