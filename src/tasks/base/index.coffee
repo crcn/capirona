@@ -1,4 +1,5 @@
 structr = require "structr"
+_ = require("underscore")
 
 ###
  base builder interface
@@ -172,7 +173,10 @@ exports.Task = class
 		# cwd is the only data that changes with the given scope.
 		target.cwd = pd.cwd or target.cwd
 
-		structr.copy target, pd
+		# structr.copy target, pd
+		# don't lose the reference to the target! copy data
+		# over to the target if it doesn't already exist
+		_.defaults(target, pd)
 
 	
 
