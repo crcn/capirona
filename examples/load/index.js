@@ -2,5 +2,9 @@ var capirona = require("../../");
 
 
 capirona.make({
-	"load": __dirname + "/tasks"
-});
+	"def loadTest": {
+		"run": {
+			"load": __dirname + "/tasks"
+		}
+	}
+}, "loadTest");
