@@ -1,7 +1,7 @@
 var capirona = require("../");
 
 
-var script = capirona.make({
+var script = capirona.run({
 	"def hello": {
 		"def world": {
 			"run": function(target, next) {

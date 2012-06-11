@@ -1,10 +1,10 @@
 var capirona = require("../");
 
 
-var script = capirona.make({
+var script = capirona.run({
 	"def hello/:name": {
 		"run": function(target, next) {
-			console.log("hello %s!", target.name);
+			console.log("hello %s!", target.data.name);
 			next();
 		}
 	}

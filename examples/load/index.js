@@ -1,7 +1,7 @@
 var capirona = require("../../");
 
 
-capirona.make({
+capirona.run({
 	"def loadTest": {
 		"run": [
 			{
@@ -12,4 +12,4 @@ capirona.make({
 			}
 		]
 	}
-}, "loadTest");
+}).run("loadTest");

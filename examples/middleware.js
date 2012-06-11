@@ -1,7 +1,7 @@
 var capirona = require("../");
 
 
-var script = capirona.make({
+var script = capirona.run([{
 	"def timeout/1000 -> hello": {
 		"def log -> ./taco/johns -> world": {
 			"run": function(target, next) {
@@ -28,7 +28,7 @@ var script = capirona.make({
 			next();
 		}
 	}
-});
+}]);
 
 
 script.run("hello/world", "hello");

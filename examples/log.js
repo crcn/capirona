@@ -1,11 +1,11 @@
 var capirona = require("../");
 
-capirona.make({
+capirona.run([{
         "log": "hello"
 },
 {
 	"log": "hello"
-}).
+}]).
 run("log", "hello world!").
 run("log", {
 	text: "hello world!"
