@@ -4,5 +4,5 @@ module.exports = {
 			"log": "loaded in <%-cwd %>"
 		}
 	},
-	"loadTest/hello": true
+	"./hello": true
 };
