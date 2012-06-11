@@ -12,7 +12,7 @@ capirona.make({
 			next();	
 		}
 	}
-}, "hello/craig").run(function() {
+}).run("hello/craig", function() {
 	console.log("done");
 });
 ```
@@ -20,24 +20,28 @@ capirona.make({
 
 ### API
 
-#### Task .make(task)
+#### .make(task)
 
 creates a new runnable script
 
-#### Task.run(target, callback)
+#### .run(command, target, callback)
 
 runs the given task. The target can be any value. For example:
 
 ```javascript
 
 capirona.make({
-	"def log": {
-		"run": function(target, next) {
-			console.log(target.value);
-		}
-	}	
-}, "log").run(
-
+        "def log": {
+                "run": function(target, next) {
+                        console.log(target.value || target.data.text);
+                        next();
+                }
+        }
+}).
+run("log", "hello world!").
+run("log", {
+	text: "hello world!"
+});
 ```
 
 
