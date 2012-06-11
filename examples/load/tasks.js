@@ -1,3 +1,3 @@
 module.exports = {
-	"log": "loaded!"
+	"log": "loaded in <%-cwd %>"
 };
