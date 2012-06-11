@@ -28,7 +28,7 @@ var script = capirona.make({
 			next();
 		}
 	}
-}, "hello/world");
+});
 
 
-script.run("hello");
+script.run("hello/world", "hello");

@@ -6,17 +6,17 @@ var script = capirona.make({
 		"def world": {
 			"run": function(target, next) {
 				console.log("hello world!");
-				next();
+				setTimeout(next, 500);
 			}	
 		},
 		"def taco/johns": {
 			"run": function(target, next) {
 				console.log("hello taco johns");
-				next();
+				setTimeout(next, 500);
 			}
 		}
 	}
-}, "hello/world", "hello/taco/johns");
+});
 
 
-script.run();
+script.run("hello/world").run("hello/taco/johns");

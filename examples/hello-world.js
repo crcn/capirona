@@ -8,7 +8,7 @@ var script = capirona.make({
 			next();
 		}
 	}
-}, "hello/craig");
+});
 
 
-script.run();
+script.run("hello/craig");

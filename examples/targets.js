@@ -14,5 +14,3 @@ var script = capirona.make({
 	}
 });
 
-
-script.run();
