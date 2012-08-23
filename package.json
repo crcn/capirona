@@ -18,5 +18,5 @@
         "beanie": "0.0.x",
         "beanpoll": "0.2.x"
     },
-    "devDependencies": {}
+    "devDependencies": { }
 }
