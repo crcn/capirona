@@ -17,7 +17,8 @@
     "seq": "0.3.x",
     "beanie": "0.0.x",
     "beanpoll": "0.2.x",
-    "structr-step": "0.0.x"
+    "structr-step": "0.0.x",
+    "dref": "0.0.x"
   },
   "devDependencies": {}
 }
