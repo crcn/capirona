@@ -4,8 +4,8 @@ var capirona = require("../");
 var script = capirona.run([{
 	"def timeout/1000 -> hello": {
 		"def log -> ./taco/johns -> world": {
-			"run": function(target, next) {
-				console.log(target.value)
+			"run": function(context, next) {
+				console.log("hello %s!", context.value())
 				next();
 			}	
 		},
@@ -17,13 +17,13 @@ var script = capirona.run([{
 		}
 	},
 	"def timeout/:ms": {
-		"run": function(target, next) {
-			console.log("timeout for %s ms", target.data.ms);
-			setTimeout(next, Number(target.data.ms));
+		"run": function(context, next) {
+			console.log("timeout for %s ms", this.get("ms"));
+			setTimeout(next, Number(this.get("ms")));
 		}
 	},
 	"def log": {
-		"run": function(target, next) {
+		"run": function(context, next) {
 			console.log("log...");
 			next();
 		}
@@ -31,4 +31,6 @@ var script = capirona.run([{
 }]);
 
 
-script.run("hello/world", "hello");
+script.run("hello/world", "craig", function(err) {
+	if(err) console.log(err.stack)
+});

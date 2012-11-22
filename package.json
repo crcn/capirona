@@ -1,7 +1,7 @@
 {
   "author": "",
   "name": "capirona",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "repository": {
     "url": ""
   },
@@ -20,7 +20,7 @@
     "structr-step": "0.0.x",
     "dref": "0.0.x",
     "request": "2.11.x",
-    "colors": "0.6.x.-1",
+    "colors": "0.6.x",
     "sprintf": "0.1.x"
   },
   "devDependencies": {}

@@ -4,7 +4,7 @@ capirona.run([{
         "log": "hello"
 },
 {
-	"log": "hello"
+	"log": "hello2"
 }]).
 run("log", "hello world!").
 run("log", {
