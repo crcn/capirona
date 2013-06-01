@@ -1,27 +1,18 @@
 {
   "author": "",
   "name": "capirona",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "repository": {
     "url": ""
   },
   "main": "./lib/index.js",
   "dependencies": {
-    "ejs": "0.6.x",
-    "traverse": "0.5.x",
-    "underscore": "1.2.x",
-    "structr": "0.2.x",
+    "async": "0.2.x",
     "crema": "0.1.x",
-    "plugin": "0.0.x",
-    "outcome": "0.0.x",
-    "seq": "0.3.x",
-    "beanie": "0.0.x",
-    "beanpoll": "0.2.x",
-    "structr-step": "0.0.x",
-    "dref": "0.0.x",
-    "request": "2.11.x",
-    "colors": "*",
-    "sprintf": "0.1.x"
+    "dref": "0.0.x"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "expect.js": "~0.2.0",
+    "mocha": "~1.10.0"
+  }
 }
